@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Runtime / generated data that must never be published
+# (scratch lives in a sibling tempdel/ folder, but guard anyway)
+tempdel/
+work/
+*.log
+metadata.jsonl
+
+# Model weights and media should never be committed
+*.gguf
+*.safetensors
+*.ckpt
+*.pt
+*.bin
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav

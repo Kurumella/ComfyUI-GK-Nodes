@@ -1,0 +1,250 @@
+{
+  "id": "GK H3 Frame Calculator",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -40,
+        -220
+      ],
+      "size": [
+        520,
+        150
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [
+        "GK H3 Frame Calculator\n\nmodes: frames_from_n | n_from_frames | fit_duration | tile_duration\nH3 formula: total_frames = 17*n + 5  (n in [7,21] @ 24fps)\nThis example tiles a 40s span into back-to-back H3-valid clips."
+      ],
+      "title": "README"
+    },
+    {
+      "id": 2,
+      "type": "GKH3FrameCalculator",
+      "pos": [
+        520,
+        -220
+      ],
+      "size": [
+        330,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "frames",
+          "type": "INT",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "n",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "duration_sec",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "valid",
+          "type": "BOOLEAN",
+          "links": [
+            3
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": [
+            1
+          ],
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GKH3FrameCalculator",
+        "cnr_id": "comfyui-gk-nodes",
+        "ver": "0.1.0"
+      },
+      "widgets_values": [
+        "tile_duration",
+        7,
+        124,
+        40.0,
+        24.0
+      ],
+      "title": "GK H3 Frame Calculator"
+    },
+    {
+      "id": 3,
+      "type": "PreviewAny",
+      "pos": [
+        900,
+        -220
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "info"
+    },
+    {
+      "id": 4,
+      "type": "PreviewAny",
+      "pos": [
+        900,
+        -60
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "total frames"
+    },
+    {
+      "id": 5,
+      "type": "PreviewAny",
+      "pos": [
+        900,
+        100
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "valid"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      4,
+      3,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      0,
+      "INT"
+    ],
+    [
+      3,
+      2,
+      3,
+      5,
+      0,
+      "BOOLEAN"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

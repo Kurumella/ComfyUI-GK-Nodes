@@ -1,0 +1,235 @@
+{
+  "id": "GK T2VA Prompt Validator",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -40,
+        -240
+      ],
+      "size": [
+        520,
+        150
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [
+        "GK T2VA Prompt Validator\n\nPaste or wire a prompt into 't2va_text'. The node checks the three required\nT2VA fields (order, [Shot 1] header, balanced <d> tags, increasing cut\ntimestamps) and returns is_valid + issues + a normalized copy.\n\nDialogue rule: one continuous spoken line must be a SINGLE <d>[Language] ...</d>\nblock ending in . ? or !. Splitting a line across <d> blocks is allowed only\nacross a cut (<scenetrans>) or at the clip end (<cutoff>). To see the warning,\nedit the sample so a <d> block ends mid-sentence without a marker, e.g. change\n'<d>[English] First batch of the morning.</d>' to\n'<d>[English] First batch of the</d> ... <d>[English] morning.</d>'."
+      ],
+      "title": "README"
+    },
+    {
+      "id": 2,
+      "type": "GKT2VAPromptValidator",
+      "pos": [
+        520,
+        -240
+      ],
+      "size": [
+        460,
+        320
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "is_valid",
+          "type": "BOOLEAN",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "issues",
+          "type": "STRING",
+          "links": [
+            2
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "normalized_text",
+          "type": "STRING",
+          "links": [
+            3
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GKT2VAPromptValidator",
+        "cnr_id": "comfyui-gk-nodes",
+        "ver": "0.1.0"
+      },
+      "widgets_values": [
+        "integrated_multimodal_description: [Shot 1] Live-action, cinematic, a medium-wide shot frames a baker opening the shutters of a small street bakery before sunrise. The camera pushes in with small amplitude at slow speed as the middle-aged baker with a calm voice (S1) places a fresh loaf on the counter and says: <d>[English] First batch of the morning.</d> [Shot 2] At 00:05.000, the camera cuts to a close-up of steam rising from the sliced bread while the baker's final words carry over from the previous shot.\n\noverall_soundscape: Wooden shutters scrape open over a quiet street as trays clink softly inside the bakery, followed by light footsteps and the crisp sound of bread being sliced.\n\nnon_diegetic_music: A soft acoustic-guitar pattern at a moderate tempo, joined by sparse upright-bass notes and a gentle fade at the end.",
+        true
+      ],
+      "title": "GK T2VA Prompt Validator"
+    },
+    {
+      "id": 3,
+      "type": "PreviewAny",
+      "pos": [
+        1020,
+        -240
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "is_valid"
+    },
+    {
+      "id": 4,
+      "type": "PreviewAny",
+      "pos": [
+        1020,
+        -80
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "issues"
+    },
+    {
+      "id": 5,
+      "type": "PreviewAny",
+      "pos": [
+        1020,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0"
+      },
+      "widgets_values": [],
+      "title": "normalized_text"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      3,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      2,
+      2,
+      1,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      3,
+      2,
+      2,
+      5,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

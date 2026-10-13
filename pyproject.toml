@@ -1,0 +1,23 @@
+[project]
+name = "comfyui-gk-nodes"
+version = "0.1.0"
+description = "Prepare MiniMax H3 finetuning datasets (H3-frame clips + T2VA prompt .txt) from a folder of large videos, with Whisper transcription and local Qwen3.8 captioning."
+license = { file = "LICENSE" }
+authors = [{ name = "Kurumella", email = "goutam.kurumella@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "openai-whisper",
+    "soundfile",
+    "opencv-python",
+    "pillow",
+    "numpy",
+    "scenedetect[opencv]",
+    "yt-dlp",
+]
+
+[project.urls]
+Repository = "https://github.com/Kurumella/ComfyUI-GK-Nodes"
+
+[tool.comfy]
+PublisherId = "Kurumella"
+DisplayName = "ComfyUI-GK-Nodes"

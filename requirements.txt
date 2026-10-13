@@ -1,0 +1,11 @@
+# ffmpeg + ffprobe must also be installed on the system PATH.
+openai-whisper
+soundfile
+opencv-python
+pillow
+numpy
+# Optional but recommended: enables scene-aware segmentation.
+# Without it, the builder falls back to fixed-window segmentation.
+scenedetect[opencv]
+# Optional: enables downloading source videos from URLs (source_urls field).
+yt-dlp
